@@ -1,21 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pos Web Site</title>
+    <script src="https://cdn.tailwindcss.com"></script> 
 </head>
 <body>
     <header> Rayane</header>
     <main>
         <section> João</section>
-        <section>Isabela</section>
+        
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center px-12">
+
+            <div>
+                <h2 class="text-3xl font-bold leading-snug text-gray-900">
+                    Especialização em Desenvolvimento Web de Alta Qualidade
+                </h2>
+
+                <p class="mt-6 text-gray-700">
+                    O curso de Pós-graduação em Desenvolvimento Web do IFBA é reconhecido nacionalmente 
+                    pela excelência na formação de profissionais capacitados para atuar no mercado de tecnologia.
+                </p>
+
+                <p class="mt-6 text-gray-700">
+                    Com uma abordagem prática e atual, nossos alunos desenvolvem competências em frameworks modernos, 
+                    arquitetura de software, UX/UI design e metodologias ágeis.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10">
+
+                    <div class="flex gap-3 items-start">
+                        <img src="" alt="Diploma" class="w-10 h-10">
+                        <div>
+                            <h4 class="font-bold text-gray-900">Corpo Docente Qualificado</h4>
+                            <p class="text-sm text-gray-600">Mestres e doutores com experiência no mercado</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-3 items-start">
+                        <img src="" alt="Projetos" class="w-10 h-10">
+                        <div>
+                            <h4 class="font-bold text-gray-900">Projetos Reais</h4>
+                            <p class="text-sm text-gray-600">Desenvolvimento de aplicações práticas</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-3 items-start">
+                        <img src="" alt="Certificação" class="w-10 h-10">
+                        <div>
+                            <h4 class="font-bold text-gray-900">Certificação MEC</h4>
+                            <p class="text-sm text-gray-600">Reconhecido pelo Ministério da Educação</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-3 items-start">
+                        <img src="" alt="Networking" class="w-10 h-10">
+                        <div>
+                            <h4 class="font-bold text-gray-900">Networking</h4>
+                            <p class="text-sm text-gray-600">Conexão com profissionais da área</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="relative">
+                <img src="" alt="turma" class="rounded-xl w-full h-auto shadow-md">
+
+                <div class="absolute -bottom-5 left-5 bg-green-600 text-white px-6 py-4 rounded-lg shadow-lg">
+                    <p class="text-2xl font-bold">500+</p>
+                    <p class="text-sm">Alunos Formados</p>
+                </div>
+            </div>
+
+        </section>
+        
         <section>Paulo</section>
         <section>Ana</section>
         <section>Paulo</section>
     </main>
     <footer>Paulo</footer>
-
-    
 </body>
 </html>
