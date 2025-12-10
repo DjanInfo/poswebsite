@@ -5,10 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Pos Web Site</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
-    <header> Rayane</header>
+<header class="m-0 pr-10 pl-10 pt-3 pb-3 bg-green-600 flex justify-between">
+
+    <section class="text-white text-1xl flex row flex gap-2">
+        <img src="assets-header/icons8-telefone-20.png" alt="telefone1">
+        <a href="telefone">(71)2102-9400</a>
+        
+        <img src="assets-header/icons8-carta-20.png" alt="email1">
+        <a href="email">posgraduacao@ifba.edu.br</a>
+    </section>
+    
+    <div class="flex row flex gap-5">
+        <img src="assets-header/icons8-facebook-novo-20.png" alt="facebook">
+        <img src="assets-header/icons8-instagram-20.png" alt="instagram">
+        <img src="assets-header/icons8-linkedin-20.png" alt="linkedin">
+    </div>
+
+</header>
+
+<nav class="hidden md:flex items-center space-x-8 text-sm font-medium flex justify-between pl-10 pr-10 pt-5 pb-5">
+
+     <div class="flex items-center space-x-4">
+        <div class="w-14 h-14 bg-green-900 rounded flex items-center justify-center text-1l text-white font-bold">
+          IFBA
+        </div>
+        
+        <div>
+          <h1 class="text-lg font-semibold">Pós-Graduação</h1>
+          <p class="text-sm">Desenvolvimento Web</p>
+        </div>
+
+      </div>
+
+      <div class="flex flex-row gap-5">
+        <a href="inicio" class="hover:text-gray-200">Início</a>
+        <div class="relative group">
+          <button class="flex items-center space-x-1 hover:text-gray-200">
+            <span>Sobre o Curso</span>
+            <span>▾</span>
+          </button>
+        </div>
+
+        <a href="processo seletivo" class="hover:text-gray-200">Processo Seletivo</a>
+        <a href="contato" class="hover:text-gray-200">Contato</a>  
+        <a href="portal do aluno" class="bg-green-600 px-5 py-2 rounded font-semibold hover:bg-green-500">
+        Portal do Aluno
+      </a>
+    </div>
+  </div>
+
+</nav>
+   
     <main>
         <section class="bg-green-700">
             <div class="pl-40 py-20 flex flex-col gap-8 items-start">
