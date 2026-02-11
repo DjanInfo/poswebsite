@@ -1,4 +1,5 @@
 import React from "react";
+import Logo from "../Logo";
 
 export default function Navbar() {
   return (
@@ -6,10 +7,7 @@ export default function Navbar() {
       
       {/* Logo + título */}
       <div className="flex items-center space-x-4">
-        {/* Logo IFBA */}
-        <div className="w-14 h-14 bg-green-900 rounded flex items-center justify-center text-lg text-white font-bold">
-          IFBA
-        </div>
+        <Logo variant="dark" size={80} />
 
         {/* Texto Pós-Graduação */}
         <div>
