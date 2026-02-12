@@ -3,6 +3,8 @@ import noteIcon from "../../assets/icons/note.png";
 import certificacaoIcon from "../../assets/icons/certificacao.png";
 import networkingIcon from "../../assets/icons/networking.png";
 import turmaImage from "../../assets/imagens/02.png";
+import Titulo_Escuro from "../TituloEscuro";
+import Texto_Escuro from "../TextoEscuro";
 
 const features = [
   {
@@ -33,19 +35,19 @@ export default function Features() {
       
       {/* Texto e Features */}
       <div>
-        <h2 className="mt-0 text-4xl lg:text-5xl font-bold leading-tight text-gray-900">
+        <Titulo_Escuro>
           Especialização em Desenvolvimento Web de Alta Qualidade
-        </h2>
+        </Titulo_Escuro>
 
-        <p className="mt-8 text-lg lg:text-xl leading-relaxed text-gray-700">
+        <Texto_Escuro className="mt-8">
           O curso de Pós-graduação em Desenvolvimento Web do IFBA é reconhecido nacionalmente
           pela excelência na formação de profissionais capacitados para atuar no mercado de tecnologia.
-        </p>
+        </Texto_Escuro>
 
-        <p className="mt-6 text-lg lg:text-xl leading-relaxed text-gray-700">
+        <Texto_Escuro className="mt-6">
           Com uma abordagem prática e atual, nossos alunos desenvolvem competências em frameworks modernos,
           arquitetura de software, UX/UI design e metodologias ágeis.
-        </p>
+        </Texto_Escuro>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10">
           {features.map((item, index) => (
