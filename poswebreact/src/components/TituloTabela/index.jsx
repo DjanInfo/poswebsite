@@ -10,7 +10,9 @@ export default function TituloTabela({
   onPaginaChange,
 }) {
   return (
-    <div className="max-w-6xl mx-auto mt-10">
+    //<div className="max-w-6xl mx-auto mt-10">
+    //troquei a de cima pela de baixo
+    <div className="mt-10">
     <div className="flex items-center justify-between bg-white border border-gray-300 rounded-t-xl px-6 py-1">
       
       <Titulo_Escuro>
