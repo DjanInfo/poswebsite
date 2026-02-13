@@ -8,6 +8,7 @@ import Noticias from "./components/Noticias"
 import Numeros from "./components/Numeros"
 import Footer from "./components/Footer"
 import Modelo from "./components/Modelo"
+import TituloTabela from "./components/TituloTabela"
 
 function Home() {
   return (
@@ -17,6 +18,7 @@ function Home() {
       <ProcessosSeletivos />
       <Noticias />
       <Numeros />
+      <TituloTabela />
     </>
   )
 }
