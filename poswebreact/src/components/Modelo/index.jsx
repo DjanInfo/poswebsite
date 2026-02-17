@@ -5,10 +5,24 @@ import Card from "../CardTopo/Card";
 import TituloTabela from "../TituloTabela";
 import TituloTopo from "../TituloTopo";
 import ControleLista from "../ControleLista";
+import Tabela from "../Tabela";  
+import { alunosMock } from "../Tabela/Alunomock"; 
+ 
 
 export default function Modelo({ children }) {
   const [pesquisa, setPesquisa] = useState("");
   const [paginaAtual, setPaginaAtual] = useState(1);
+
+   // Configuração das colunas para alunos
+  const colunasAlunos = [
+    { titulo: "MATRÍCULA", campo: "matricula", tipo: "texto" },
+    { titulo: "NOME DO ALUNO", campo: "nome", tipo: "foto" },
+    { titulo: "EMAIL", campo: "email", tipo: "texto" },
+    { titulo: "CURSO", campo: "curso", tipo: "texto" },
+    { titulo: "STATUS", campo: "status", tipo: "status" },
+    { titulo: "DATA MATRÍCULA", campo: "dataMatricula", tipo: "texto" },
+    { titulo: "AÇÕES", campo: "acoes", tipo: "acoes" },
+  ];
 
   return (
     <div className="w-full bg-gray-50 min-h-screen">
@@ -77,6 +91,14 @@ export default function Modelo({ children }) {
           inicio={1}
           fim={10}
           onPaginaChange={setPaginaAtual}
+        />
+       
+        {/* ===== TABELA DE ALUNOS ===== */}
+        
+          <Tabela 
+          dados={alunosMock}
+          colunas={colunasAlunos}
+          chaveSelecao="matricula"
         />
 
         {/* ===== CONTEÚDO DINÂMICO ===== */}
