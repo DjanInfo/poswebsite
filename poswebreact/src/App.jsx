@@ -7,8 +7,9 @@ import ProcessosSeletivos from "./components/ProcessosSeletivos"
 import Noticias from "./components/Noticias"
 import Numeros from "./components/Numeros"
 import Footer from "./components/Footer"
-import Modelo from "./components/Modelo"
 import TituloTabela from "./components/TituloTabela"
+import ModeloPage from "./pages/modelo/AlunoPage";
+
 
 function Home() {
   return (
@@ -31,7 +32,7 @@ export default function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/modelo" element={<Modelo />} />
+        <Route path="/modelo" element={<ModeloPage />} />
       </Routes>
 
       <Footer />
