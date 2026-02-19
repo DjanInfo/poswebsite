@@ -9,6 +9,7 @@ import Numeros from "./components/Numeros"
 import Footer from "./components/Footer"
 import TituloTabela from "./components/TituloTabela"
 import ModeloPage from "./pages/modelo/AlunoPage";
+import NoticiaPage from "./pages/noticias/NoticiaPage"
 
 
 function Home() {
@@ -33,6 +34,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/modelo" element={<ModeloPage />} />
+        <Route path="/noticias" element={<NoticiaPage />} />
       </Routes>
 
       <Footer />
