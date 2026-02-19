@@ -83,6 +83,7 @@ export default function Modelo({ children }) {
 
 
         {/* ===== PAGINAÇÃO / TABELA INFO ===== */}
+        <div className="flex flex-col gap-0">
         <TituloTabela
           titulo="Alunos Matriculados"
           paginaAtual={paginaAtual}
@@ -100,6 +101,7 @@ export default function Modelo({ children }) {
           colunas={colunasAlunos}
           chaveSelecao="matricula"
         />
+        </div>
 
         {/* ===== CONTEÚDO DINÂMICO ===== */}
         <div className="flex flex-col gap-6">

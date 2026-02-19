@@ -13,7 +13,7 @@ export default function TituloTabela({
     //<div className="max-w-6xl mx-auto mt-10">
     //troquei a de cima pela de baixo
     <div className="mt-10">
-    <div className="flex items-center justify-between bg-white border border-gray-300 rounded-t-xl px-6 py-1">
+    <div className="flex items-center justify-between bg-gray-50 border border-gray-200 rounded-t-xl px-6 py-1">
       
       <Titulo_Escuro>
         <span className="text-2xl font-semibold">
@@ -32,7 +32,7 @@ export default function TituloTabela({
           <button
             onClick={() => onPaginaChange(paginaAtual - 1)}
             disabled={paginaAtual === 1}
-            className="px-3 py-1 text-base border border-gray-300 rounded-md bg-white"
+            className="px-3 py-1 text-base border border-gray-300 rounded-md bg-gray-50"
           >
             Anterior
           </button>
