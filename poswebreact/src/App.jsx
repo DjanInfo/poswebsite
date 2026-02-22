@@ -8,7 +8,8 @@ import Noticias from "./components/Noticias"
 import Numeros from "./components/Numeros"
 import Footer from "./components/Footer"
 import TituloTabela from "./components/TituloTabela"
-import ModeloPage from "./pages/modelo/AlunoPage";
+import ModeloPage from "./pages/alunos/Aluno";
+import Alunos from "./pages/alunos/Aluno"
 
 
 function Home() {
@@ -33,6 +34,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/modelo" element={<ModeloPage />} />
+        <Route path="/aluno" element={<Alunos />} />
       </Routes>
 
       <Footer />
