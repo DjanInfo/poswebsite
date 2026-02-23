@@ -71,13 +71,15 @@ export default function AlunoPage() {
   }, [dados, pesquisa]);
 
   return (
-    <ListagemLayout
-      titulo="Lista de Alunos"
-      subtitulo="Gerencie e visualize todos os alunos matriculados"
-      placeholderPesquisa="Buscar aluno..."
-      pesquisa={pesquisa}
-      onPesquisa={(e) => setPesquisa(e.target.value)}
-    >
+      <ListagemLayout
+        titulo="Lista de Alunos"
+        subtitulo="Gerencie e visualize todos os alunos matriculados"
+        placeholderPesquisa="Buscar aluno..."
+        pesquisa={pesquisa}
+        onPesquisa={(e) => setPesquisa(e.target.value)}
+        onAdicionar={() => navigate("/alunos/novo")}
+        textoBotao="Novo Aluno"
+      >
       <TituloTabela
         titulo="Alunos Matriculados"
         paginaAtual={paginaAtual}
