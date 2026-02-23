@@ -17,6 +17,9 @@ import Ouvidoria from "./pages/ouvidoria/OuvidoriaPage";
 import NoticiaPage from "./pages/noticias/NoticiaPage"
 import DocentePage from "./pages/Docente/Docentepage";
 import InscricaoPage from "./pages/inscricoes/InscricoesPage";
+import OuvidoriaShowPage from "./pages/ouvidoria/OuvidoriaShowPage"
+import OuvidoriaEditPage from "./pages/ouvidoria/OuvidoriaEditePage"
+import OuvidoriaCreatePage from "./pages/ouvidoria/OuvidoriaCreatepage"
 
 
 function Home() {
@@ -44,8 +47,12 @@ export default function App() {
         <Route path="/modelo/novo" element={<ModeloCreatePage />} />
         <Route path="/modelo/:matricula" element={<ModeloShowPage />} />
         <Route path="/modelo/:matricula/editar" element={<ModeloEditPage />} />
+        <Route path="/ouvidorias" element={<Ouvidoria/>} />
+        <Route path="/ouvidorias/novo" element={<OuvidoriaCreatePage />} />
+        <Route path="/ouvidorias/:id" element={<OuvidoriaShowPage />} />
+        <Route path="/ouvidorias/:id/editar" element={<OuvidoriaEditPage />} />
         <Route path="/aluno" element={<Alunos />} />
-        <Route path="/ouvidoria" element={<Ouvidoria/>} />
+        
         <Route path="/noticias" element={<NoticiaPage />} />
         <Route path="/docentes" element={<DocentePage />} />
         <Route path="/inscricoes" element={<InscricaoPage />} />
