@@ -64,18 +64,9 @@ export default function EditalCreatePage() {
           className="border p-2 rounded h-32 resize-none"
         />
         <input
-          name="nome"
-          placeholder="Nome"
-          value={form.nome}
-          onChange={handleChange}
-          required
-          className="border p-2 rounded"
-        />
-
-        <input
-          name="email"
-          placeholder="Email"
-          value={form.email}
+          name="status"
+          placeholder="Status"
+          value={form.status}
           onChange={handleChange}
           required
           className="border p-2 rounded"

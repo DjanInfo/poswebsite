@@ -7,6 +7,7 @@ import ProcessosSeletivos from "./components/ProcessosSeletivos"
 import Noticias from "./components/Noticias"
 import Numeros from "./components/Numeros"
 import Footer from "./components/Footer"
+<<<<<<< HEAD
 import TituloTabela from "./components/TituloTabela"
 import Alunos from "./pages/alunos/Aluno"
 import ModeloPage from "./pages/modelo/AlunoPage";
@@ -21,6 +22,10 @@ import EditalPage from "./pages/editais/EditalPage";
 import EditalCreatePage from "./pages/editais/EditalCreatePage";
 import EditalShowPage from "./pages/editais/EditalShowPage";
 import EditalEditPage from "./pages/editais/EditalEditPage";
+=======
+import Modelo from "./components/Modelo"
+import EditalPage from "./pages/editais/EditalPage"
+>>>>>>> a1551f3ce22879e3534df572c51eec211f35bca0
 
 function Home() {
   return (
@@ -43,6 +48,7 @@ export default function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
+<<<<<<< HEAD
         <Route path="/modelo" element={<ModeloPage />} />
         <Route path="/modelo/novo" element={<ModeloCreatePage />} />
         <Route path="/modelo/:matricula" element={<ModeloShowPage />} />
@@ -58,6 +64,10 @@ export default function App() {
         <Route path="/editais/:id" element={<EditalShowPage />} />
         <Route path="/editais/:id/editar" element={<EditalEditPage />} />
 
+=======
+        <Route path="/modelo" element={<Modelo />} />
+        <Route path="/editais" element={<EditalPage />} />
+>>>>>>> a1551f3ce22879e3534df572c51eec211f35bca0
       </Routes>
 
       <Footer />
