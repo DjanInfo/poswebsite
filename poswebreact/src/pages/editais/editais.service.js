@@ -9,6 +9,18 @@ export const buscarEditais = async () => {
     return response.data;
 };
 
-//endpoints
-function getEditais() {
+export async function getEditais() {
+    const response = await api.get("/");
+    return response.data;
+}
+
+export async function postEditais(edital) {
+    const response = await api.post("/", edital);
+    return response.data;
+}
+
+export async function deleteEditais(id) {
+    if (!id) throw new Error("ID do edital é obrigatório para exclusão");
+    const response = await api.delete(`/${id}`);
+    return response.data;
 }
