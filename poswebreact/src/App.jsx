@@ -36,6 +36,7 @@ export default function App() {
         <Route path="/modelo" element={<ModeloPage />} />
         <Route path="/docentes" element={<DocentePage />} />
         <Route path="/inscricoes" element={<InscricaoPage />} />
+        <Route path="/inscricoes/:id" element={<InscricaoPage />} />
       </Routes>
 
       <Footer />

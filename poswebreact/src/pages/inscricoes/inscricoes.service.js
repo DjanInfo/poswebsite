@@ -9,3 +9,7 @@ export const buscarInscricoes = async () => {
     return response.data;
   };
   
+export const buscarInscricaoPorId = async(id) => {
+    const response = await api.get(`/inscricoes/${id}`);
+    return response.data;
+};
