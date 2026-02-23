@@ -6,7 +6,7 @@ import TituloTabela from "../../components/TituloTabela";
 import { colunasAlunos } from "./alunos.columns";
 import { buscarAlunos } from "./alunos.service";
 
-export default function AlunoPage() {
+export default function Aluno() {
   const [dados, setDados] = useState([]);
   const [paginaAtual, setPaginaAtual] = useState(1);
   const [pesquisa, setPesquisa] = useState("");

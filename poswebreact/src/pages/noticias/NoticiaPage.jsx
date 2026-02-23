@@ -3,42 +3,42 @@ import ListagemLayout from "../../layouts/ListagemLayout";
 import Tabela from "../../components/Tabela";
 import TituloTabela from "../../components/TituloTabela";
 
-import { colunasAlunos } from "./alunos.columns";
-import { buscarAlunos } from "./alunos.service";
+import { colunasNoticias } from "./noticias.columns";
+import { getNoticias } from "./noticias.service";
 
-export default function AlunoPage() {
+export default function NoticiaPage() {
   const [dados, setDados] = useState([]);
   const [paginaAtual, setPaginaAtual] = useState(1);
   const [pesquisa, setPesquisa] = useState("");
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    async function carregarAlunos() {
+    async function carregarNoticias() {
       try {
         setLoading(true);
-        const alunos = await buscarAlunos();
-        setDados(alunos);
+        const noticias = await getNoticias();
+        setDados(noticias);
 
       } catch (error) {
-        console.error("Erro ao buscar alunos:", error);
+        console.error("Erro ao buscar noticias:", error);
       } finally {
         setLoading(false);
       }
     }
 
-    carregarAlunos();
+    carregarNoticias();
   }, []);
 
   return (
     <ListagemLayout
-      titulo="Lista de Alunos"
-      subtitulo="Gerencie e visualize todos os alunos matriculados"
-      placeholderPesquisa="Buscar aluno..."
+      titulo="Lista de Notícias"
+      subtitulo="Gerencie e visualize todas as notícias cadastradas"
+      placeholderPesquisa="Buscar notícia..."
       pesquisa={pesquisa}
       onPesquisa={(e) => setPesquisa(e.target.value)}
     >
       <TituloTabela
-        titulo="Alunos Matriculados"
+        titulo="Notícias"
         paginaAtual={paginaAtual}
         totalPaginas={1}
         totalRegistros={dados.length}
@@ -52,8 +52,8 @@ export default function AlunoPage() {
       ) : (
         <Tabela
           dados={dados}
-          colunas={colunasAlunos}
-          chaveSelecao="matricula"
+          colunas={colunasNoticias}
+          chaveSelecao="id"
         />
       )}
     </ListagemLayout>
