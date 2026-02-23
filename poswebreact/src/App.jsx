@@ -9,6 +9,8 @@ import Numeros from "./components/Numeros"
 import Footer from "./components/Footer"
 import TituloTabela from "./components/TituloTabela"
 import ModeloPage from "./pages/modelo/AlunoPage";
+import NoticiaPage from "./pages/noticias/NoticiaPage"
+
 import DocentePage from "./pages/Docente/Docentepage";
 import InscricaoPage from "./pages/inscricoes/InscricoesPage";
 
@@ -34,6 +36,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/modelo" element={<ModeloPage />} />
+        <Route path="/noticias" element={<NoticiaPage />} />
         <Route path="/docentes" element={<DocentePage />} />
         <Route path="/inscricoes" element={<InscricaoPage />} />
       </Routes>
