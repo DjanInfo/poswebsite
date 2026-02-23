@@ -53,9 +53,6 @@ export default function App() {
         <Route path="/noticias/novo" element={<NoticiaCreatePage />} />
         <Route path="/noticias/:id" element={<NoticiaShowPage />} />
         <Route path="/noticias/:id/editar" element={<NoticiaEditPage />} />
-        <Route path="/noticias/novo" element={<NoticiaCreatePage />} />
-        <Route path="/noticias/:id" element={<NoticiaShowPage />} />
-        <Route path="/noticias/:id/editar" element={<NoticiaEditPage />} />
         <Route path="/docentes" element={<DocentePage />} />
         <Route path="/inscricoes" element={<InscricaoPage />} />
         <Route path="/inscricoes/:id" element={<InscricaoPage />} />
