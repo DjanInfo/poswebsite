@@ -5,5 +5,3 @@ export const colunasEditais = [
     {titulo: "STATUS", campo: "status", tipo: "status"},
     {titulo: "AÇÕES", campo: "acoes", tipo: "acoes"},
 ];
-
-//23/02/2026

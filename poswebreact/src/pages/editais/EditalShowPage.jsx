@@ -39,5 +39,3 @@ export default function EditalShowPage() {
     </div>
   );
 }
-
-//23/02/2026

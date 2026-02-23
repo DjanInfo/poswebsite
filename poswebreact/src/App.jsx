@@ -21,7 +21,6 @@ import EditalPage from "./pages/editais/EditalPage";
 import EditalCreatePage from "./pages/editais/EditalCreatePage";
 import EditalShowPage from "./pages/editais/EditalShowPage";
 import EditalEditPage from "./pages/editais/EditalEditPage";
-import Modelo from "./components/Modelo"
 
 function Home() {
   return (
@@ -54,11 +53,11 @@ export default function App() {
         <Route path="/docentes" element={<DocentePage />} />
         <Route path="/inscricoes" element={<InscricaoPage />} />
         <Route path="/inscricoes/:id" element={<InscricaoPage />} />
-        <Route path="/editais" element={<EditalPage />} />
         <Route path="/editais/novo" element={<EditalCreatePage />} />
         <Route path="/editais/:id" element={<EditalShowPage />} />
         <Route path="/editais/:id/editar" element={<EditalEditPage />} />
         <Route path="/editais" element={<EditalPage />} />
+
       </Routes>
 
       <Footer />

@@ -28,5 +28,3 @@ export const excluirEdital = async (id) => {
     await api.delete(`/editais/${id}`);
     return true;
 }
-
-//23/02/2026
