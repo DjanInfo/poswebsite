@@ -10,9 +10,11 @@ import Footer from "./components/Footer"
 import TituloTabela from "./components/TituloTabela"
 import Alunos from "./pages/alunos/Aluno"
 import ModeloPage from "./pages/modelo/AlunoPage";
+import ModeloCreatePage from "./pages/modelo/AlunoCreatePage"
+import ModeloShowPage from "./pages/modelo/AlunoShowPage"
+import ModeloEditPage from "./pages/modelo/AlunoEditPage"
 import Ouvidoria from "./pages/ouvidoria/OuvidoriaPage";
 import NoticiaPage from "./pages/noticias/NoticiaPage"
-
 import DocentePage from "./pages/Docente/Docentepage";
 import InscricaoPage from "./pages/inscricoes/InscricoesPage";
 
@@ -39,6 +41,9 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/modelo" element={<ModeloPage />} />
+        <Route path="/modelo/novo" element={<ModeloCreatePage />} />
+        <Route path="/modelo/:matricula" element={<ModeloShowPage />} />
+        <Route path="/modelo/:matricula/editar" element={<ModeloEditPage />} />
         <Route path="/aluno" element={<Alunos />} />
         <Route path="/ouvidoria" element={<Ouvidoria/>} />
         <Route path="/noticias" element={<NoticiaPage />} />
