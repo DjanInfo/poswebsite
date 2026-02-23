@@ -61,10 +61,9 @@ export default function InscricoesPage(){
           />
 
           <div className="bg-white p-6 rounded shadow mt-4">
-            <p><strong>Nome:</strong> {inscricao.nome}</p>
+            <p><strong>Nome do Aluno:</strong> {inscricao.nome}</p>
             <p><strong>Email:</strong> {inscricao.email}</p>
             <p><strong>Status:</strong> {inscricao.status}</p>
-            <p><strong>Curso:</strong> {inscricao.curso}</p>
 
             <button
               onClick={() => navigate("/inscricoes")}
