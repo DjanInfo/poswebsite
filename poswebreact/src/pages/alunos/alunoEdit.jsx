@@ -45,7 +45,7 @@ export default function AlunoEdit() {
   if (!form) return <p className="p-6">Aluno não encontrado.</p>;
 
   return (
-      <div className="min-h-screen bg-gray-50 flex items-start justify-center pt-14">
+      <div className="min-h-screen bg-gray-50 flex items-start justify-center pt-8 pb-10">
     
         <div className="bg-white w-full max-w-xl rounded-3xl shadow-2xl p-10">
     
@@ -80,6 +80,16 @@ export default function AlunoEdit() {
               <input
                 name="email"
                 value={form.email}
+                onChange={handleChange}
+                className="w-full border-2 border-green-500 p-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 mt-2"
+              />
+            </div>
+
+             <div>
+              <Texto_Escuro>Data Matrícula</Texto_Escuro>
+              <input
+                name="data"
+                value={form.data}
                 onChange={handleChange}
                 className="w-full border-2 border-green-500 p-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 mt-2"
               />

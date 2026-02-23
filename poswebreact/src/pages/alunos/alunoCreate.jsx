@@ -10,6 +10,7 @@ export default function AlunoCreate() {
     matricula: "",
     nome: "",
     email: "",
+    data: "",
     status: ""
   });
 
@@ -35,7 +36,7 @@ export default function AlunoCreate() {
   }
 
   return (
-  <div className="min-h-screen bg-gray-50 flex items-start justify-center pt-14">
+  <div className="min-h-screen bg-gray-50 flex items-start justify-center pt-8 pb-10">
 
     <div className="bg-white w-full max-w-xl rounded-3xl shadow-2xl p-10">
 
@@ -76,6 +77,19 @@ export default function AlunoCreate() {
             name="email"
             placeholder="Email"
             value={form.email}
+            onChange={handleChange}
+            required
+            className="w-full border-2 border-green-500 p-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 mt-2"
+          />
+        </div>
+
+        <div>
+          <Texto_Escuro>Data Matrícula</Texto_Escuro>
+          <input
+            type="data"
+            name="data"
+            placeholder="Data"
+            value={form.data}
             onChange={handleChange}
             required
             className="w-full border-2 border-green-500 p-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 mt-2"
