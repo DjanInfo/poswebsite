@@ -44,6 +44,7 @@ export default function App() {
         <Route path="/noticias" element={<NoticiaPage />} />
         <Route path="/docentes" element={<DocentePage />} />
         <Route path="/inscricoes" element={<InscricaoPage />} />
+        <Route path="/inscricoes/:id" element={<InscricaoPage />} />
 
       </Routes>
 
