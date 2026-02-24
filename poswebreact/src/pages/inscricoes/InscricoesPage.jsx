@@ -1,111 +1,110 @@
-import { useParams, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import ListagemLayout from "../../layouts/ListagemLayout";
 import Tabela from "../../components/Tabela";
 import TituloTabela from "../../components/TituloTabela";
+import { useNavigate } from "react-router-dom";
 
+import { buscarInscricoes, excluirInscricao } from "./inscricoes.service";
 import { colunasInscricoes } from "./inscricoes.columns";
-import { buscarInscricoes, buscarInscricaoPorId} from "./inscricoes.service";
 
-export default function InscricoesPage(){
-      const { id } = useParams();
-      const navigate = useNavigate();
-      const [dados, setDados] = useState([]);
-      const [inscricao, setInscricao] = useState(null);
-      const [paginaAtual, setPaginaAtual] = useState(1);
-      const [pesquisa, setPesquisa] = useState("");
-      const [loading, setLoading] = useState(false);
-    
-    useEffect(() => {
-        async function carregarInscricoes() {
-          try {
-            setLoading(true);
-            if(id){
-              const dadosPoId = await buscarInscricaoPorId(id);
-              setInscricao(dadosPoId);
-            } 
-            else{
-              const Inscricoes = await buscarInscricoes();
-              setDados(Inscricoes);
-            }
-    
-          } catch (error) {
-            console.error("Erro ao buscar Inscricoes:", error);
-          } finally {
-            setLoading(false);
-          }
-        }
-    
-        carregarInscricoes();
-      }, [id]);
+export default function InscricoesPage() {
+  const [dados, setDados] = useState([]);
+  const [paginaAtual, setPaginaAtual] = useState(1);
+  const [pesquisa, setPesquisa] = useState("");
+  const [loading, setLoading] = useState(false);
 
-      if (loading) return <p>Carregando...</p>;
+  const navigate = useNavigate();
 
-      if (id && inscricao) {
-      return (
-        <ListagemLayout
-          titulo="Detalhes da Inscrição"
-          subtitulo={`Visualizando inscrição de código ${id}`}
-          placeholderPesquisa="inscrição"
-          pesquisa={pesquisa}
-          onPesquisa={(e) => setPesquisa(e.target.value)}
-        >
-          <TituloTabela
-            titulo="Dados da Inscrição"
-            paginaAtual={1}
-            totalPaginas={1}
-            totalRegistros={1}
-            inicio={1}
-            fim={1}
-            onPaginaChange={() => {}}
-          />
-
-          <div className="bg-white p-6 rounded shadow mt-4">
-            <p><strong>Nome do Aluno:</strong> {inscricao.nome}</p>
-            <p><strong>Email:</strong> {inscricao.email}</p>
-            <p><strong>Status:</strong> {inscricao.status}</p>
-
-            <button
-              onClick={() => navigate("/inscricoes")}
-              className="mt-6 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-            >
-              Voltar
-            </button>
-          </div>
-        </ListagemLayout>
-      );
+  useEffect(() => {
+    async function carregarInscricoes() {
+      try {
+        setLoading(true);
+        const inscricoes = await buscarInscricoes();
+        setDados(inscricoes);
+      } catch (error) {
+        console.error("Erro ao buscar inscrições:", error.response?.data || error.message);
+        alert("Erro ao carregar inscrições");
+      } finally {
+        setLoading(false);
+      }
     }
 
-      
-      return (
-        <ListagemLayout
-          titulo="Lista de Inscrições"
-          subtitulo="Gerencie e visualize as inscrições"
-          placeholderPesquisa="inscrição"
-          pesquisa={pesquisa}
-          onPesquisa={(e) => setPesquisa(e.target.value)}
-        >
-          <TituloTabela
-            titulo="Alunos Matriculados"
-            paginaAtual={paginaAtual}
-            totalPaginas={1}
-            totalRegistros={dados.length}
-            inicio={1}
-            fim={dados.length}
-            onPaginaChange={setPaginaAtual}
-          />
-    
-          {loading ? (
-            <p>Carregando...</p>
-          ) : (
-            <Tabela
-            dados={dados}
-            colunas={colunasInscricoes}
-            chaveSelecao="inscricao"
-            onAcaoClick={(item) => navigate(`/inscricoes/${item.id}`)}
-          />
+    carregarInscricoes();
+  }, []);
 
-          )}
-        </ListagemLayout>
-      );
+  // =============================
+  // DELETE
+  // =============================
+  async function handleDelete(id) {
+    const confirmar = window.confirm("Tem certeza que deseja excluir esta inscrição?");
+    if (!confirmar) return;
+
+    try {
+      await excluirInscricao(id);
+
+      // Atualização otimista (remove da lista sem recarregar página)
+      setDados((prev) => prev.filter((inscricao) => inscricao.id !== id));
+    } catch (error) {
+      console.error("Erro ao excluir:", error.response?.data || error.message);
+      alert("Erro ao excluir inscrição");
+    }
+  }
+
+  // =============================
+  // FILTRO DE PESQUISA (CLIENT SIDE)
+  // =============================
+  const dadosFiltrados = useMemo(() => {
+    if (!pesquisa.trim()) return dados;
+
+    const termo = pesquisa.toLowerCase();
+
+    return dados.filter((inscricao) =>
+      inscricao.nome?.toLowerCase().includes(termo) ||
+      inscricao.email?.toLowerCase().includes(termo) ||
+      inscricao.id?.toString().includes(termo)
+    );
+  }, [dados, pesquisa]);
+
+  return (
+    <ListagemLayout
+      titulo="Lista de Inscrições"
+      subtitulo="Gerencie e visualize todas as inscrições"
+      placeholderPesquisa="Buscar inscrição..."
+      pesquisa={pesquisa}
+      onPesquisa={(e) => setPesquisa(e.target.value)}
+    >
+      <TituloTabela
+        titulo="Inscrições"
+        paginaAtual={paginaAtual}
+        totalPaginas={1}
+        totalRegistros={dadosFiltrados.length}
+        inicio={dadosFiltrados.length > 0 ? 1 : 0}
+        fim={dadosFiltrados.length}
+        onPaginaChange={setPaginaAtual}
+      />
+
+      {loading ? (
+        <p className="p-6">Carregando...</p>
+      ) : (
+        <Tabela
+          dados={dadosFiltrados}
+          colunas={colunasInscricoes}
+          chaveSelecao="id"
+          onAcaoClick={(acao, item) => {
+            if (acao === "visualizar") {
+              navigate(`/inscricoes/${item.id}`);
+            }
+
+            if (acao === "editar") {
+              navigate(`/inscricoes/${item.id}/editar`);
+            }
+
+            if (acao === "excluir") {
+              handleDelete(item.id);
+            }
+          }}
+        />
+      )}
+    </ListagemLayout>
+  );
 }

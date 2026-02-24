@@ -12,9 +12,10 @@ import Alunos from "./pages/alunos/Aluno"
 import ModeloPage from "./pages/modelo/AlunoPage";
 import Ouvidoria from "./pages/ouvidoria/OuvidoriaPage";
 import NoticiaPage from "./pages/noticias/NoticiaPage"
-
 import DocentePage from "./pages/Docente/Docentepage";
 import InscricaoPage from "./pages/inscricoes/InscricoesPage";
+import InscricoesEditPage from "./pages/inscricoes/InscricoesEditPage";
+import InscricoesShowPage from "./pages/inscricoes/InscricoesShowPage";
 
 
 function Home() {
@@ -44,8 +45,8 @@ export default function App() {
         <Route path="/noticias" element={<NoticiaPage />} />
         <Route path="/docentes" element={<DocentePage />} />
         <Route path="/inscricoes" element={<InscricaoPage />} />
-        <Route path="/inscricoes/:id" element={<InscricaoPage />} />
-
+        <Route path="/inscricoes/:id" element={<InscricoesShowPage />} />
+        <Route path="/inscricoes/:id/editar" element={<InscricoesEditPage />} />
       </Routes>
 
       <Footer />
