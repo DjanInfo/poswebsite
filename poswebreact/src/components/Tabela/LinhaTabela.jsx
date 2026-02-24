@@ -35,7 +35,10 @@ export default function LinhaTabela({
         return <Status status={item[coluna.campo]} />;
       
       case 'acoes':
-        return <Acoes onAcaoClick={() => onAcaoClick?.(item)} />;
+        return <Acoes 
+  item={item}
+  onAcaoClick={onAcaoClick}
+/>;
       
       case 'texto':
       default:
