@@ -31,7 +31,7 @@ export default function InscricoesShowPage() {
       <h1 className="text-xl font-bold mb-6">Detalhes da Inscrição</h1>
 
       <div className="space-y-2">
-        <p><strong>ID:</strong> {inscricao.id}</p>
+        <p><strong>Código da Inscrição:</strong> {inscricao.id}</p>
         <p><strong>Nome:</strong> {inscricao.nome}</p>
         <p><strong>Email:</strong> {inscricao.email}</p>
         <p><strong>Status:</strong> {inscricao.status}</p>

@@ -32,9 +32,7 @@ export default function InscricoesPage() {
     carregarInscricoes();
   }, []);
 
-  // =============================
-  // DELETE
-  // =============================
+  
   async function handleDelete(id) {
     const confirmar = window.confirm("Tem certeza que deseja excluir esta inscrição?");
     if (!confirmar) return;
@@ -42,7 +40,6 @@ export default function InscricoesPage() {
     try {
       await excluirInscricao(id);
 
-      // Atualização otimista (remove da lista sem recarregar página)
       setDados((prev) => prev.filter((inscricao) => inscricao.id !== id));
     } catch (error) {
       console.error("Erro ao excluir:", error.response?.data || error.message);
@@ -50,9 +47,7 @@ export default function InscricoesPage() {
     }
   }
 
-  // =============================
-  // FILTRO DE PESQUISA (CLIENT SIDE)
-  // =============================
+
   const dadosFiltrados = useMemo(() => {
     if (!pesquisa.trim()) return dados;
 
@@ -72,6 +67,8 @@ export default function InscricoesPage() {
       placeholderPesquisa="Buscar inscrição..."
       pesquisa={pesquisa}
       onPesquisa={(e) => setPesquisa(e.target.value)}
+      onAdicionar={() => navigate("/inscricoes/criar")}
+      textoBotao="Nova Inscrição"
     >
       <TituloTabela
         titulo="Inscrições"
