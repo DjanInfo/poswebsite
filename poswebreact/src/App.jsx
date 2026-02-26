@@ -23,6 +23,10 @@ import NoticiaCreatePage from "./pages/noticias/NoticiaCreatePage"
 import NoticiaEditPage from "./pages/noticias/NoticiaEditPage"
 import DocentePage from "./pages/Docente/Docentepage";
 import InscricaoPage from "./pages/inscricoes/InscricoesPage";
+import EditalPage from "./pages/editais/EditalPage";
+import EditalCreatePage from "./pages/editais/EditalCreatePage";
+import EditalShowPage from "./pages/editais/EditalShowPage";
+import EditalEditPage from "./pages/editais/EditalEditPage";
 import InscricoesEditPage from "./pages/inscricoes/InscricoesEditPage";
 import InscricoesShowPage from "./pages/inscricoes/InscricoesShowPage";
 import DisciplinasPage from "./pages/disciplinas/Disciplina"
@@ -70,6 +74,10 @@ export default function App() {
         <Route path="/inscricoes/:id" element={<InscricoesShowPage />} />
         <Route path="/inscricoes/:id/editar" element={<InscricoesEditPage />} />
         <Route path="/inscricoes/:id" element={<InscricaoPage />} />
+        <Route path="/editais" element={<EditalPage />} />
+        <Route path="/editais/novo" element={<EditalCreatePage />} />
+        <Route path="/editais/:id" element={<EditalShowPage />} />
+        <Route path="/editais/:id/editar" element={<EditalEditPage />} />
         <Route path="/disciplinas" element={<DisciplinasPage/>} />
         <Route path="/disciplinas/:id" element={<DisciplinaVisualizar/>}/>
         <Route path="/disciplinas/:id/editar" element={<DisciplinasEditPage/>}/>
