@@ -32,6 +32,7 @@ import EditalShowPage from "./pages/editais/EditalShowPage";
 import EditalEditPage from "./pages/editais/EditalEditPage";
 import InscricoesEditPage from "./pages/inscricoes/InscricoesEditPage";
 import InscricoesShowPage from "./pages/inscricoes/InscricoesShowPage";
+import InscricaoCreatePage from "./pages/inscricoes/InscricaoCreatePage";
 import DisciplinasPage from "./pages/disciplinas/Disciplina";
 import DisciplinaVisualizar from "./pages/disciplinas/disciplinavisualizar";
 import DisciplinasEditPage from "./pages/disciplinas/DisciplinaEditPage";
