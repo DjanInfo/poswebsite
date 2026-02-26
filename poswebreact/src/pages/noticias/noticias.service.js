@@ -18,7 +18,7 @@ export const criarNoticia = async (dados) => {
 };
 
 export const atualizarNoticia = async (id, dados) => {
-  const response = await api.put(`/noticias/${id}`, dados);
+  const response = await api.patch(`/noticias/${id}`, dados);
   return response.data;
 };
 

@@ -35,7 +35,7 @@ export default function Tabela({
     lista.length > 0 && selecionados.length === lista.length;
 
   return (
-    <div className="bg-white rounded-lg shadow overflow-hidden">
+    <div className="bg-white rounded-b-xl shadow overflow-hidden">
       <div className="overflow-x-auto">
         <table className="min-w-full divide-y divide-gray-200">
           <TabelaHeader
