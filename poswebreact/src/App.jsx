@@ -19,6 +19,10 @@ import DocentePage from "./pages/Docente/Docentepage";
 import InscricaoPage from "./pages/inscricoes/InscricoesPage";
 import InscricoesEditPage from "./pages/inscricoes/InscricoesEditPage";
 import InscricoesShowPage from "./pages/inscricoes/InscricoesShowPage";
+import DisciplinasPage from "./pages/disciplinas/Disciplina"
+import DisciplinaVisualizar from "./pages/disciplinas/disciplinavisualizar"
+import DisciplinasEditPage from "./pages/disciplinas/DisciplinaEditPage"
+import DisciplinaCreatePage from "./pages/disciplinas/DisciplinaCreatePage"
 
 
 function Home() {
@@ -29,7 +33,7 @@ function Home() {
       <ProcessosSeletivos />
       <Noticias />
       <Numeros />
-      <TituloTabela />
+  
     </>
   );
 }
@@ -53,6 +57,11 @@ export default function App() {
         <Route path="/inscricoes" element={<InscricaoPage />} />
         <Route path="/inscricoes/:id" element={<InscricoesShowPage />} />
         <Route path="/inscricoes/:id/editar" element={<InscricoesEditPage />} />
+        <Route path="/inscricoes/:id" element={<InscricaoPage />} />
+        <Route path="/disciplinas" element={<DisciplinasPage/>} />
+        <Route path="/disciplinas/:id" element={<DisciplinaVisualizar/>}/>
+        <Route path="/disciplinas/:id/editar" element={<DisciplinasEditPage/>}/>
+        <Route path="/disciplinas/nova" element={<DisciplinaCreatePage/>}/>
       </Routes>
 
       <Footer />
