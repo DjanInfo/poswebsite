@@ -68,6 +68,8 @@ export default function NoticiaPage() {
       placeholderPesquisa="Buscar notícia..."
       pesquisa={pesquisa}
       onPesquisa={(e) => setPesquisa(e.target.value)}
+      onAdicionar={() => navigate("/noticias/novo")}
+      textoBotao = "Nova Notícia"
     >
       <TituloTabela
         titulo="Notícias"
