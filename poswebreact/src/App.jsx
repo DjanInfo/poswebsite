@@ -24,6 +24,24 @@ import InscricaoPage from "./pages/inscricoes/InscricoesPage";
 import DocenteCreatePage from "./pages/Docente/DocenteCreatePage";
 import DocenteShowPage from "./pages/Docente/DocenteShowPage";
 import DocenteEditPage from "./pages/Docente/DocenteEditPage";
+import NoticiaShowPage from "./pages/noticias/NoticiaShowPage"
+import NoticiaCreatePage from "./pages/noticias/NoticiaCreatePage"
+import NoticiaEditPage from "./pages/noticias/NoticiaEditPage"
+import DocentePage from "./pages/Docente/Docentepage";
+import InscricaoPage from "./pages/inscricoes/InscricoesPage";
+import OuvidoriaShowPage from "./pages/ouvidoria/OuvidoriaShowPage"
+import OuvidoriaEditPage from "./pages/ouvidoria/OuvidoriaEditePage"
+import OuvidoriaCreatePage from "./pages/ouvidoria/OuvidoriaCreatepage"
+import EditalPage from "./pages/editais/EditalPage";
+import EditalCreatePage from "./pages/editais/EditalCreatePage";
+import EditalShowPage from "./pages/editais/EditalShowPage";
+import EditalEditPage from "./pages/editais/EditalEditPage";
+import InscricoesEditPage from "./pages/inscricoes/InscricoesEditPage";
+import InscricoesShowPage from "./pages/inscricoes/InscricoesShowPage";
+import DisciplinasPage from "./pages/disciplinas/Disciplina"
+import DisciplinaVisualizar from "./pages/disciplinas/disciplinavisualizar"
+import DisciplinasEditPage from "./pages/disciplinas/DisciplinaEditPage"
+import DisciplinaCreatePage from "./pages/disciplinas/DisciplinaCreatePage"
 
 
 function Home() {
@@ -36,12 +54,12 @@ function Home() {
       <Numeros />
   
     </>
-  )
+  );
 }
 
 export default function App() {
   return (
-   <>
+    <>
       <Header />
       <Navbar />
 
@@ -86,5 +104,5 @@ export default function App() {
 
       <Footer />
     </>
-  )
+  );
 }

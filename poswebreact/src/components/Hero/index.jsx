@@ -1,6 +1,13 @@
+import Subtitulo_branco from '../Subtitulo_branco';
+import Titulo_branco from '../Titulo_branco';
+import fundoTopo from '../../assets/imagens/fundotopo.png';
+
 export default function Hero() {
   return (
-    <section className="bg-green-700 text-white">
+    <section 
+      className="text-white bg-cover bg-center"
+      style={{ backgroundImage: `url(${fundoTopo})` }}
+    >
       <div className="pl-40 py-20 flex flex-col gap-8 items-start max-w-7xl">
 
         {/* Badge */}
@@ -12,21 +19,21 @@ export default function Hero() {
         </a>
 
         {/* Título */}
-        <h1 className="text-4xl font-bold w-2/4">
+        <Titulo_branco>
           Pós-Graduação em Desenvolvimento Web
-        </h1>
+        </Titulo_branco>
 
         {/* Subtítulo */}
-        <h2 className="text-2xl font-normal w-5/6">
+        <Subtitulo_branco>
           Forme-se como especialista em tecnologias web modernas. Aprenda com os melhores professores do IFBA e desenvolva projetos práticos que farão diferença no mercado.
-        </h2>
+        </Subtitulo_branco>
 
         {/* Botões */}
         <div className="flex gap-8">
-          <button className="bg-white text-green-700 py-3 px-7 rounded-lg font-bold hover:bg-gray-100 transition">
+          <button className="bg-white text-green-700 py-3 px-7 rounded-lg font-bold hover:bg-gray-300 transition">
             Inscreva-se Agora
           </button>
-          <button className="text-white border-2 py-3 px-7 rounded-lg font-bold hover:bg-white/10 transition">
+          <button className="text-white border-2 py-3 px-7 rounded-lg font-bold hover:bg-white/20 transition">
             Saiba Mais
           </button>
         </div>

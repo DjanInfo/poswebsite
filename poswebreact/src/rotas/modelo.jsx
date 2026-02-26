@@ -1,15 +1,14 @@
 import { useState } from "react";
 
-import Texto_Escuro from "../TextoEscuro";
-import Card from "../CardTopo/Card";
-import TituloTabela from "../TituloTabela";
-import TituloTopo from "../TituloTopo";
-import ControleLista from "../ControleLista";
-import Tabela from "../Tabela";  
-import { alunosMock } from "../Tabela/Alunomock"; 
+import Card from "../components/CardTopo/Card";
+import TituloTabela from "../components/TituloTabela";
+import TituloTopo from "../components/TituloTopo";
+import ControleLista from "../components/ControleLista";
+import Tabela from "../components/Tabela";  
+import { alunosMock } from "../components/Tabela/Alunomock"; 
  
 
-export default function Modelo({ children }) {
+function Modelo({ children }) {
   const [pesquisa, setPesquisa] = useState("");
   const [paginaAtual, setPaginaAtual] = useState(1);
 
@@ -83,7 +82,6 @@ export default function Modelo({ children }) {
 
 
         {/* ===== PAGINAÇÃO / TABELA INFO ===== */}
-        <div className="flex flex-col gap-0">
         <TituloTabela
           titulo="Alunos Matriculados"
           paginaAtual={paginaAtual}
@@ -101,14 +99,10 @@ export default function Modelo({ children }) {
           colunas={colunasAlunos}
           chaveSelecao="matricula"
         />
-        </div>
-
-        {/* ===== CONTEÚDO DINÂMICO ===== */}
-        <div className="flex flex-col gap-6">
-          {children}
-        </div>
 
       </div>
     </div>
   );
 }
+
+export default Modelo;
