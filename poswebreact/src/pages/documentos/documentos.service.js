@@ -7,6 +7,7 @@ const api = axios.create({
 export const buscarDocumentos = async () => {
   const response = await api.get("/documentos");
   return response.data;
+<<<<<<< HEAD
 };
 
 export const buscarDocumentoPorId = async (id) => {
@@ -27,4 +28,6 @@ export const atualizarDocumento = async (id, dados) => {
 export const excluirDocumento = async (id) => {
   await api.delete(`/documentos/${id}`);
   return true;
+=======
+>>>>>>> 9097860fee835603fbdfd784844faed7ca8331ce
 };
