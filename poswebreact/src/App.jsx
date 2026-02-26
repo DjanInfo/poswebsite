@@ -73,11 +73,12 @@ export default function App() {
         <Route path="/noticias/:id" element={<NoticiaShowPage />} />
         <Route path="/noticias/:id/editar" element={<NoticiaEditPage />} />
         <Route path="/docentes" element={<DocentePage />} />
+
         <Route path="/inscricoes" element={<InscricaoPage />} />
         <Route path="/inscricoes/criar" element={<InscricaoCreatePage />} />
         <Route path="/inscricoes/:id" element={<InscricoesShowPage />} />
         <Route path="/inscricoes/:id/editar" element={<InscricoesEditPage />} />
-        <Route path="/inscricoes/:id" element={<InscricaoPage />} />
+
         <Route path="/editais" element={<EditalPage />} />
         <Route path="/editais/novo" element={<EditalCreatePage />} />
         <Route path="/editais/:id" element={<EditalShowPage />} />
