@@ -1,18 +1,17 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 import ListagemLayout from "../../layouts/ListagemLayout";
 import Tabela from "../../components/Tabela";
 import TituloTabela from "../../components/TituloTabela";
-import Titulo from "../../components/Titulo_branco"
-import Subtitulo from "../../components/Subtitulo_branco";  
+
 
 import { colunasOuvidoria } from "./ouvidoria.columns";
-import { buscarOuvidorias } from "./ouvidoria.service";
+import { buscarOuvidorias, excluirOuvidoria } from "./ouvidoria.service";
 
 export default function AlunoPage() {
+  const navigate = useNavigate();
   const [dados, setDados] = useState([]);
-  const [dadosSelecionados, setDadosSelecionados] = useState([]);
   const [paginaAtual, setPaginaAtual] = useState(1);
-  const [visualizarOuvidoria, setVisualizarOuvidoria] = useState(false);
   const [pesquisa, setPesquisa] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -33,47 +32,78 @@ export default function AlunoPage() {
     carregarOuvidorias();
   }, []);
 
+   async function handleDelete(id) {
+      const confirmar = window.confirm("Tem certeza que deseja excluir este aluno?");
+      if (!confirmar) return;
+  
+      try {
+        await excluirOuvidoria(id);
+  
+        // Atualização otimista (remove da lista sem recarregar página)
+        setDados((prev) =>
+          prev.filter((ouvidoria) => ouvidoria.id !== id)
+        );
+      } catch (error) {
+        console.error("Erro ao excluir:", error.response?.data || error.message);
+        alert("Erro ao excluir Ouvidoria");
+      }
+    }
+
+  const dadosFiltrados = useMemo(() => {
+      if (!pesquisa.trim()) return dados;
+  
+      const termo = pesquisa.toLowerCase();
+  
+      return dados.filter((ouvidoria) =>
+        ouvidoria.autor?.toLowerCase().includes(termo) ||
+        ouvidoria.texto?.toLowerCase().includes(termo) ||
+        ouvidoria.id?.toString().includes(termo)
+      );
+    }, [dados, pesquisa]);
+
   return (
     <ListagemLayout
-      titulo="Lista de Ouvidorias"
-      subtitulo="Gerencie e visualize todos os Ouvidorias Enviadas"
-      placeholderPesquisa="Buscar ouvidoria..."
-      pesquisa={pesquisa}
-      onPesquisa={(e) => setPesquisa(e.target.value)}
-    >
+            titulo="Lista de ouvidorias"
+            subtitulo="Gerencie e visualize todos as Ouvidorias"
+            placeholderPesquisa="Buscar ouvidorias..."
+            pesquisa={pesquisa}
+            onPesquisa={(e) => setPesquisa(e.target.value)}
+            onAdicionar={() => navigate("/ouvidorias/novo")}
+            textoBotao="Nova ouvidoria"
+          >
       <TituloTabela
         titulo="Ouvidorias Enviadas"
         paginaAtual={paginaAtual}
         totalPaginas={1}
-        totalRegistros={dados.length}
+        totalRegistros={dadosFiltrados.length}
         inicio={1}
-        fim={dados.length}
+        fim={dadosFiltrados.length}
         onPaginaChange={setPaginaAtual}
 
       />
-
-      {visualizarOuvidoria && dadosSelecionados && (
-              <div className="bg-white p-4 my-4 rounded shadow">
-                <div className="flex justify-between items-center">
-                  <Titulo>Ouvidoria</Titulo>
-                  <button
-                    className="font-bold text-red-500 cursor-pointer" 
-                    onClick={() => setVisualizarOuvidoria(false)}>X</button>
-                </div>
-                <h2><p>ID: {dadosSelecionados.id}</p> {dadosSelecionados.nome}</h2> 
-                <br />
-                <Subtitulo>{dadosSelecionados.texto}</Subtitulo>
-              </div>
-            )}
 
       {loading ? (
         <p>Carregando...</p>
       ) : (
         <Tabela
-          dados={dados}
+          dados={dadosFiltrados}
           colunas={colunasOuvidoria}
           chaveSelecao="id"
-  
+           onAcaoClick={(acao, item) => {
+            if (acao === "visualizar") {
+            navigate(`/ouvidorias/${item.id}`);
+
+            }
+
+            if (acao === "editar") {
+              navigate(`/ouvidorias/${item.id}/editar`);
+            }
+
+            if (acao === "excluir") {
+              handleDelete(item.id);
+            }
+          }}
+
 
         />
       )}

@@ -20,7 +20,7 @@ export const criarAluno = async (dados) => {
 };
 
 export const atualizarAluno = async (matricula, dados) => {
-  const response = await api.put(`/alunos/${matricula}`, dados);
+  const response = await api.patch(`/alunos/${matricula}`, dados);
   return response.data;
 };
 

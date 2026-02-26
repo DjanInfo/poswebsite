@@ -4,10 +4,10 @@ import Tabela from "../../components/Tabela";
 import TituloTabela from "../../components/TituloTabela";
 import { useNavigate } from "react-router-dom";
 
-import { buscarInscricoes, excluirInscricao } from "./inscricoes.service";
-import { colunasInscricoes } from "./inscricoes.columns";
+import { colunasEditais } from "./editais.columns";
+import { buscarEditais, excluirEdital } from "./editais.service";
 
-export default function InscricoesPage() {
+export default function EditalPage() {
   const [dados, setDados] = useState([]);
   const [paginaAtual, setPaginaAtual] = useState(1);
   const [pesquisa, setPesquisa] = useState("");
@@ -16,65 +16,56 @@ export default function InscricoesPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    async function carregarInscricoes() {
+    async function carregarEditais() {
       try {
         setLoading(true);
-        const inscricoes = await buscarInscricoes();
-        setDados(inscricoes);
+        const editais = await buscarEditais();
+        setDados(editais);
       } catch (error) {
-        console.error("Erro ao buscar inscrições:", error.response?.data || error.message);
-        alert("Erro ao carregar inscrições");
+        console.error("Erro ao buscar editais:", error.response?.data || error.message);
+        alert("Erro ao carregar editais");
       } finally {
         setLoading(false);
       }
     }
 
-    carregarInscricoes();
+    carregarEditais();
   }, []);
 
-  // =============================
-  // DELETE
-  // =============================
   async function handleDelete(id) {
-    const confirmar = window.confirm("Tem certeza que deseja excluir esta inscrição?");
+    const confirmar = window.confirm("Tem certeza que deseja excluir este edital?");
     if (!confirmar) return;
-
     try {
-      await excluirInscricao(id);
-
-      // Atualização otimista (remove da lista sem recarregar página)
-      setDados((prev) => prev.filter((inscricao) => inscricao.id !== id));
+      await excluirEdital(id);
+      setDados((prev) => prev.filter((edital) => edital.id !== id));
     } catch (error) {
       console.error("Erro ao excluir:", error.response?.data || error.message);
-      alert("Erro ao excluir inscrição");
+      alert("Erro ao excluir edital");
     }
   }
 
-  // =============================
-  // FILTRO DE PESQUISA (CLIENT SIDE)
-  // =============================
-  const dadosFiltrados = useMemo(() => {
-    if (!pesquisa.trim()) return dados;
+    const dadosFiltrados = useMemo(() => {
+      if (!pesquisa.trim()) return dados;
 
-    const termo = pesquisa.toLowerCase();
-
-    return dados.filter((inscricao) =>
-      inscricao.nome?.toLowerCase().includes(termo) ||
-      inscricao.email?.toLowerCase().includes(termo) ||
-      inscricao.id?.toString().includes(termo)
-    );
-  }, [dados, pesquisa]);
+      const termo = pesquisa.toLowerCase();
+      return dados.filter((edital) =>
+        edital.titulo.toLowerCase().includes(termo) ||
+        edital.descricao.toLowerCase().includes(termo)
+      );
+    }, [dados, pesquisa]);
 
   return (
     <ListagemLayout
-      titulo="Lista de Inscrições"
-      subtitulo="Gerencie e visualize todas as inscrições"
-      placeholderPesquisa="Buscar inscrição..."
+      titulo="Lista de Editais"
+      subtitulo="Gerencie e visualize todos os editais publicados"
+      placeholderPesquisa="Buscar edital..."
       pesquisa={pesquisa}
       onPesquisa={(e) => setPesquisa(e.target.value)}
+      onAdicionar={() => navigate("/editais/novo")}
+      textoBotao="Novo Edital"
     >
       <TituloTabela
-        titulo="Inscrições"
+        titulo="Editais Publicados"
         paginaAtual={paginaAtual}
         totalPaginas={1}
         totalRegistros={dadosFiltrados.length}
@@ -88,15 +79,15 @@ export default function InscricoesPage() {
       ) : (
         <Tabela
           dados={dadosFiltrados}
-          colunas={colunasInscricoes}
+          colunas={colunasEditais}
           chaveSelecao="id"
           onAcaoClick={(acao, item) => {
             if (acao === "visualizar") {
-              navigate(`/inscricoes/${item.id}`);
+              navigate(`/editais/${item.id}`);
             }
 
             if (acao === "editar") {
-              navigate(`/inscricoes/${item.id}/editar`);
+              navigate(`/editais/${item.id}/editar`);
             }
 
             if (acao === "excluir") {
