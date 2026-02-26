@@ -33,10 +33,6 @@ import EditalEditPage from "./pages/editais/EditalEditPage";
 import InscricoesEditPage from "./pages/inscricoes/InscricoesEditPage";
 import InscricoesShowPage from "./pages/inscricoes/InscricoesShowPage";
 import InscricaoCreatePage from "./pages/inscricoes/InscricaoCreatePage";
-import DisciplinasPage from "./pages/disciplinas/Disciplina";
-import DisciplinaVisualizar from "./pages/disciplinas/disciplinavisualizar";
-import DisciplinasEditPage from "./pages/disciplinas/DisciplinaEditPage";
-import DisciplinaCreatePage from "./pages/disciplinas/DisciplinaCreatePage";
 
 function Home() {
   return (
@@ -86,13 +82,6 @@ export default function App() {
         <Route path="/editais/novo" element={<EditalCreatePage />} />
         <Route path="/editais/:id" element={<EditalShowPage />} />
         <Route path="/editais/:id/editar" element={<EditalEditPage />} />
-        <Route path="/disciplinas" element={<DisciplinasPage />} />
-        <Route path="/disciplinas/:id" element={<DisciplinaVisualizar />} />
-        <Route
-          path="/disciplinas/:id/editar"
-          element={<DisciplinasEditPage />}
-        />
-        <Route path="/disciplinas/nova" element={<DisciplinaCreatePage />} />
       </Routes>
 
       <Footer />
