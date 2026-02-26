@@ -20,7 +20,7 @@ export const criarEdital = async (dados) => {
 };
 
 export const atualizarEdital = async (id, dados) => {
-    const response = await api.put(`/editais/${id}`, dados);
+    const response = await api.patch(`/editais/${id}`, dados);
     return response.data;
 };
 
