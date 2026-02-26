@@ -23,6 +23,9 @@ import NoticiaCreatePage from "./pages/noticias/NoticiaCreatePage"
 import NoticiaEditPage from "./pages/noticias/NoticiaEditPage"
 import DocentePage from "./pages/Docente/Docentepage";
 import InscricaoPage from "./pages/inscricoes/InscricoesPage";
+import OuvidoriaShowPage from "./pages/ouvidoria/OuvidoriaShowPage"
+import OuvidoriaEditPage from "./pages/ouvidoria/OuvidoriaEditePage"
+import OuvidoriaCreatePage from "./pages/ouvidoria/OuvidoriaCreatepage"
 import EditalPage from "./pages/editais/EditalPage";
 import EditalCreatePage from "./pages/editais/EditalCreatePage";
 import EditalShowPage from "./pages/editais/EditalShowPage";
@@ -60,7 +63,12 @@ export default function App() {
         <Route path="/modelo/novo" element={<ModeloCreatePage />} />
         <Route path="/modelo/:matricula" element={<ModeloShowPage />} />
         <Route path="/modelo/:matricula/editar" element={<ModeloEditPage />} />
+        <Route path="/ouvidorias" element={<Ouvidoria/>} />
+        <Route path="/ouvidorias/novo" element={<OuvidoriaCreatePage />} />
+        <Route path="/ouvidorias/:id" element={<OuvidoriaShowPage />} />
+        <Route path="/ouvidorias/:id/editar" element={<OuvidoriaEditPage />} />
         <Route path="/aluno" element={<Alunos />} />
+        
         <Route path="/aluno/novo" element={<AlunoCreate />} />
         <Route path="/aluno/:matricula" element={<AlunoShow />} />
         <Route path="/aluno/:matricula/editar" element={<AlunoEdit />} />
