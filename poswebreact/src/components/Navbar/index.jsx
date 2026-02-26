@@ -27,6 +27,10 @@ export default function Navbar() {
           Alunos
         </Link>
 
+        <Link to="/disciplinas" className="hover:text-gray-500">
+        Disciplinas
+        </Link>
+
         <Link to="/docentes" className="hover:text-gray-500">
           Docentes
         </Link>
