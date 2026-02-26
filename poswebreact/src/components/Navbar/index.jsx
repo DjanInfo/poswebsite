@@ -7,14 +7,15 @@ export default function Navbar() {
     <nav className="hidden md:flex items-center justify-between px-10 py-5 bg-white shadow text-sm font-medium">
       
       {/* Logo + título */}
-      <div className="flex items-center space-x-4">
+      <Link to="/" className="flex items-center space-x-4">
         <Logo variant="dark" size={80} />
 
         <div>
           <h1 className="text-lg font-semibold">Pós-Graduação</h1>
           <p className="text-sm">Desenvolvimento Web</p>
         </div>
-      </div>
+        
+      </Link>
 
       {/* Menu */}
       <div className="flex flex-row gap-5 items-center">

@@ -15,7 +15,7 @@ export default function ListagemLayout({
 }) {
   return (
     <div className="w-full bg-gray-50 min-h-screen">
-      <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col gap-8">
+      <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col">
 
         {/* TÍTULO */}
         <TituloTopo titulo={titulo} subtitulo={subtitulo} />
