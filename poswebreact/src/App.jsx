@@ -18,6 +18,9 @@ import ModeloShowPage from "./pages/modelo/AlunoShowPage"
 import ModeloEditPage from "./pages/modelo/AlunoEditPage"
 import Ouvidoria from "./pages/ouvidoria/OuvidoriaPage";
 import NoticiaPage from "./pages/noticias/NoticiaPage"
+import NoticiaShowPage from "./pages/noticias/NoticiaShowPage"
+import NoticiaCreatePage from "./pages/noticias/NoticiaCreatePage"
+import NoticiaEditPage from "./pages/noticias/NoticiaEditPage"
 import DocentePage from "./pages/Docente/Docentepage";
 import InscricaoPage from "./pages/inscricoes/InscricoesPage";
 import InscricoesEditPage from "./pages/inscricoes/InscricoesEditPage";
@@ -59,6 +62,9 @@ export default function App() {
         <Route path="/aluno/:matricula/editar" element={<AlunoEdit />} />
         <Route path="/ouvidoria" element={<Ouvidoria/>} />
         <Route path="/noticias" element={<NoticiaPage />} />
+        <Route path="/noticias/novo" element={<NoticiaCreatePage />} />
+        <Route path="/noticias/:id" element={<NoticiaShowPage />} />
+        <Route path="/noticias/:id/editar" element={<NoticiaEditPage />} />
         <Route path="/docentes" element={<DocentePage />} />
         <Route path="/inscricoes" element={<InscricaoPage />} />
         <Route path="/inscricoes/:id" element={<InscricoesShowPage />} />
