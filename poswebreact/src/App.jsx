@@ -42,6 +42,10 @@ import DisciplinasPage from "./pages/disciplinas/Disciplina"
 import DisciplinaVisualizar from "./pages/disciplinas/disciplinavisualizar"
 import DisciplinasEditPage from "./pages/disciplinas/DisciplinaEditPage"
 import DisciplinaCreatePage from "./pages/disciplinas/DisciplinaCreatePage"
+import InscricaoPage from "./pages/inscricoes/InscricoesPage";
+import DocenteCreatePage from "./pages/Docente/DocenteCreatePage";
+import DocenteShowPage from "./pages/Docente/DocenteShowPage";
+import DocenteEditPage from "./pages/Docente/DocenteEditPage";
 
 
 function Home() {
