@@ -72,6 +72,8 @@ export default function InscricoesPage() {
       placeholderPesquisa="Buscar inscrição..."
       pesquisa={pesquisa}
       onPesquisa={(e) => setPesquisa(e.target.value)}
+      onAdicionar={() => navigate("/inscricoes/novo")}
+      textoBotao="Nova Inscrição"
     >
       <TituloTabela
         titulo="Inscrições"

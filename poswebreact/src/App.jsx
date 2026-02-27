@@ -25,23 +25,21 @@ import DocenteShowPage from "./pages/Docente/DocenteShowPage";
 import DocenteEditPage from "./pages/Docente/DocenteEditPage";
 import NoticiaShowPage from "./pages/noticias/NoticiaShowPage"
 import NoticiaCreatePage from "./pages/noticias/NoticiaCreatePage"
-import NoticiaEditPage from "./pages/noticias/NoticiaEditPage"
-import DocentePage from "./pages/Docente/Docentepage";
-import InscricaoPage from "./pages/inscricoes/InscricoesPage";
-import OuvidoriaShowPage from "./pages/ouvidoria/OuvidoriaShowPage"
-import OuvidoriaEditPage from "./pages/ouvidoria/OuvidoriaEditePage"
-import OuvidoriaCreatePage from "./pages/ouvidoria/OuvidoriaCreatepage"
+import NoticiaEditPage from "./pages/noticias/NoticiaEditPage";
+import OuvidoriaShowPage from "./pages/ouvidoria/OuvidoriaShowPage";
+import OuvidoriaEditPage from "./pages/ouvidoria/OuvidoriaEditePage";
+import OuvidoriaCreatePage from "./pages/ouvidoria/OuvidoriaCreatepage";
 import EditalPage from "./pages/editais/EditalPage";
 import EditalCreatePage from "./pages/editais/EditalCreatePage";
 import EditalShowPage from "./pages/editais/EditalShowPage";
 import EditalEditPage from "./pages/editais/EditalEditPage";
+import InscricoesCreatePage from "./pages/inscricoes/InscricoesCreatePage";
 import InscricoesEditPage from "./pages/inscricoes/InscricoesEditPage";
 import InscricoesShowPage from "./pages/inscricoes/InscricoesShowPage";
-import DisciplinasPage from "./pages/disciplinas/Disciplina"
-import DisciplinaVisualizar from "./pages/disciplinas/disciplinavisualizar"
-import DisciplinasEditPage from "./pages/disciplinas/DisciplinaEditPage"
-import DisciplinaCreatePage from "./pages/disciplinas/DisciplinaCreatePage"
-
+import DisciplinasPage from "./pages/disciplinas/Disciplina";
+import DisciplinaVisualizar from "./pages/disciplinas/disciplinavisualizar";
+import DisciplinasEditPage from "./pages/disciplinas/DisciplinaEditPage";
+import DisciplinaCreatePage from "./pages/disciplinas/DisciplinaCreatePage";
 
 function Home() {
   return (
@@ -51,7 +49,6 @@ function Home() {
       <ProcessosSeletivos />
       <Noticias />
       <Numeros />
-  
     </>
   );
 }
@@ -68,36 +65,45 @@ export default function App() {
         <Route path="/modelo/novo" element={<ModeloCreatePage />} />
         <Route path="/modelo/:matricula" element={<ModeloShowPage />} />
         <Route path="/modelo/:matricula/editar" element={<ModeloEditPage />} />
-        <Route path="/ouvidorias" element={<Ouvidoria/>} />
+
+        <Route path="/ouvidoria" element={<Ouvidoria />} />
+        <Route path="/ouvidorias" element={<Ouvidoria />} />
         <Route path="/ouvidorias/novo" element={<OuvidoriaCreatePage />} />
         <Route path="/ouvidorias/:id" element={<OuvidoriaShowPage />} />
         <Route path="/ouvidorias/:id/editar" element={<OuvidoriaEditPage />} />
+
         <Route path="/aluno" element={<Alunos />} />
-        
         <Route path="/aluno/novo" element={<AlunoCreate />} />
         <Route path="/aluno/:matricula" element={<AlunoShow />} />
         <Route path="/aluno/:matricula/editar" element={<AlunoEdit />} />
-        <Route path="/ouvidoria" element={<Ouvidoria/>} />
+
         <Route path="/noticias" element={<NoticiaPage />} />
         <Route path="/noticias/novo" element={<NoticiaCreatePage />} />
         <Route path="/noticias/:id" element={<NoticiaShowPage />} />
         <Route path="/noticias/:id/editar" element={<NoticiaEditPage />} />
+
         <Route path="/docentes" element={<DocentePage />} />
         <Route path="/docentes/novo" element={<DocenteCreatePage />} />
         <Route path="/docentes/:id" element={<DocenteShowPage />} />
         <Route path="/docentes/:id/editar" element={<DocenteEditPage />} />
+
         <Route path="/inscricoes" element={<InscricaoPage />} />
+        <Route path="/inscricoes/novo" element={<InscricoesCreatePage />} />
         <Route path="/inscricoes/:id" element={<InscricoesShowPage />} />
         <Route path="/inscricoes/:id/editar" element={<InscricoesEditPage />} />
-        <Route path="/inscricoes/:id" element={<InscricaoPage />} />
+
         <Route path="/editais" element={<EditalPage />} />
         <Route path="/editais/novo" element={<EditalCreatePage />} />
         <Route path="/editais/:id" element={<EditalShowPage />} />
         <Route path="/editais/:id/editar" element={<EditalEditPage />} />
-        <Route path="/disciplinas" element={<DisciplinasPage/>} />
-        <Route path="/disciplinas/:id" element={<DisciplinaVisualizar/>}/>
-        <Route path="/disciplinas/:id/editar" element={<DisciplinasEditPage/>}/>
-        <Route path="/disciplinas/nova" element={<DisciplinaCreatePage/>}/>
+
+        <Route path="/disciplinas" element={<DisciplinasPage />} />
+        <Route path="/disciplinas/:id" element={<DisciplinaVisualizar />} />
+        <Route
+          path="/disciplinas/:id/editar"
+          element={<DisciplinasEditPage />}
+        />
+        <Route path="/disciplinas/nova" element={<DisciplinaCreatePage />} />
       </Routes>
 
       <Footer />
