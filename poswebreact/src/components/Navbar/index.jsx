@@ -52,6 +52,10 @@ export default function Navbar() {
           Notícias
         </Link>
 
+        <Link to="/usuarios" className="hover:text-gray-500">
+          Usuários
+        </Link>
+
         <Link
           to="/aluno"
           className="bg-green-600 px-5 py-2 rounded font-semibold hover:bg-green-500 text-white"
