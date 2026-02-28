@@ -40,6 +40,10 @@ import DisciplinasPage from "./pages/disciplinas/Disciplina";
 import DisciplinaVisualizar from "./pages/disciplinas/disciplinavisualizar";
 import DisciplinasEditPage from "./pages/disciplinas/DisciplinaEditPage";
 import DisciplinaCreatePage from "./pages/disciplinas/DisciplinaCreatePage";
+import UsuarioPage from "./pages/usuarios/UsuarioPage";
+import UsuarioEditPage from "./pages/usuarios/UsuarioEditPage";
+import UsuarioCreatePage from "./pages/usuarios/UsuarioCreatePage"
+import UsuarioShowPage from "./pages/usuarios/UsuarioShowPage"
 
 function Home() {
   return (
@@ -86,6 +90,11 @@ export default function App() {
         <Route path="/docentes/novo" element={<DocenteCreatePage />} />
         <Route path="/docentes/:id" element={<DocenteShowPage />} />
         <Route path="/docentes/:id/editar" element={<DocenteEditPage />} />
+
+        <Route path="/usuarios" element={<UsuarioPage />} />
+        <Route path="/usuarios/:id" element={<UsuarioShowPage />} />
+        <Route path="/usuarios/novo" element={<UsuarioCreatePage />} />
+        <Route path="/usuarios/:id/editar" element={<UsuarioEditPage />} />
 
         <Route path="/inscricoes" element={<InscricaoPage />} />
         <Route path="/inscricoes/novo" element={<InscricoesCreatePage />} />
